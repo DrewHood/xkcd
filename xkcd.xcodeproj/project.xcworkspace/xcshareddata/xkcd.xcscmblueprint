@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "15C04D2E19FED5C43EC8ACBCA75FE5EB6ACE0FA0",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "15C04D2E19FED5C43EC8ACBCA75FE5EB6ACE0FA0" : 9223372036854775807,
+    "67620B5EFA902936DF04070AF595B76AB0333747" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "74F7988A-98AF-42CA-90EB-3A41CB823E13",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "15C04D2E19FED5C43EC8ACBCA75FE5EB6ACE0FA0" : "xkcd\/",
+    "67620B5EFA902936DF04070AF595B76AB0333747" : "xkcd\/Alamofire\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "xkcd",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "xkcd.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/git.drewrhood.me\/DrewHood\/xkcd.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "15C04D2E19FED5C43EC8ACBCA75FE5EB6ACE0FA0"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:Alamofire\/Alamofire.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "67620B5EFA902936DF04070AF595B76AB0333747"
+    }
+  ]
+}
