@@ -505,6 +505,7 @@
 				3A6901BC1D88D99E0075635A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -7,13 +7,23 @@
 //
 
 import Foundation
+import CoreData
 
 extension Comic {
     
-    convenience init(withDictionary dict: [String:AnyObject]) {
-        self.init()
+    static private let COMIC_CLASS_NAME = "Comic"
+    
+    class func newComic(inContext context: NSManagedObjectContext) -> Comic {
+        let newObj: Comic = NSEntityDescription.insertNewObject(forEntityName: COMIC_CLASS_NAME, into: context) as! Comic
         
-        self.id = dict["num"] as! Int32
+        return newObj
+        
+    }
+    
+    func seed(withDictionary dict: [String:AnyObject]) -> Comic {
+        let nsnum = dict["num"] as! NSNumber
+        
+        self.id = nsnum.int32Value
         self.title = dict["title"] as? String
         self.safeTitle = dict["safe_title"] as? String
         self.alt = dict["alt"] as? String
@@ -21,11 +31,7 @@ extension Comic {
         self.link = dict["link"] as? String
         self.news = dict["news"] as? String
         
-        let month = dict["month"] as! Int32
-        let day = dict["day"] as! Int32
-        let year = dict["year"] as! Int32
-        
-        self.timestamp = Date(withDateString: "\(year)-\(month)-\(day)") as NSDate?
+        return self
     }
     
 }

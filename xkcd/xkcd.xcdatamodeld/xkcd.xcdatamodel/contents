@@ -9,14 +9,11 @@
         <attribute name="news" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="remoteImageUrl" attributeType="String" syncable="YES"/>
         <attribute name="safeTitle" attributeType="String" syncable="YES"/>
-        <attribute name="timestamp" attributeType="Date">
-            <userInfo/>
-        </attribute>
         <attribute name="title" attributeType="String" syncable="YES"/>
         <userInfo/>
     </entity>
     <fetchRequest name="FavoriteComicsFetchRequest" entity="Comic" predicateString="favorite == 1"/>
     <elements>
-        <element name="Comic" positionX="261" positionY="189" width="128" height="195"/>
+        <element name="Comic" positionX="261" positionY="189" width="128" height="180"/>
     </elements>
 </model>

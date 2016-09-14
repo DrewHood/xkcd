@@ -7,13 +7,21 @@
 //
 
 import Foundation
+import UIKit
 import Alamofire
+import CoreData
 
 class ComicManager {
     
+    // Data
+    private let moc: NSManagedObjectContext
+    
     // Singleton
     static let sharedManager = ComicManager()
-    private init() {}
+    private init() {
+        let appDel = UIApplication.shared.delegate as! AppDelegate
+        self.moc = appDel.persistentContainer.viewContext
+    }
     
     // MARK: - Delegation
     var delegate: ComicManagerDelegate?
@@ -46,7 +54,8 @@ class ComicManager {
         */
         
         func saveNewComic(dictionary: [String:AnyObject]) {
-            let newComic = Comic(withDictionary: dictionary)
+            
+            let newComic = Comic.newComic(inContext: self.moc).seed(withDictionary: dictionary)
             
             do {
                 try newComic.managedObjectContext?.save()
@@ -58,7 +67,11 @@ class ComicManager {
             }
         }
         
-        for id in 1700...1720 {
+        for id in 1700...1730 {
+            if let _ = self.getComic(withId: Int32(id)) {
+                continue
+            }
+            
             let urlStr = "https://xkcd.com/\(id)/info.0.json"
             
             Alamofire.request(urlStr).responseJSON { response in
@@ -78,6 +91,37 @@ class ComicManager {
     
     func getComics(favorites: Bool = false) -> [Comic]? {
         // Perform Core Data lookup
+        let fetchRequest: NSFetchRequest<Comic> = Comic.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "id", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        do {
+            let comics: [Comic] = try self.moc.fetch(fetchRequest)
+            return comics
+        } catch {
+            print("Error with fetch!")
+        }
+        
+        return nil
+    }
+    
+    func getComic(withId id: Int32) -> Comic? {
+        // Perform Core Data lookup
+        let fetchRequest: NSFetchRequest<Comic> = Comic.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "id", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        let predicate = NSPredicate(format: "id == \(id)")
+        fetchRequest.predicate = predicate
+        
+        do {
+            let comics: [Comic] = try self.moc.fetch(fetchRequest)
+            if comics.count > 0 {
+                return comics[0]
+            }
+        } catch {
+            print("Error with fetch!")
+        }
+        
         return nil
     }
     
