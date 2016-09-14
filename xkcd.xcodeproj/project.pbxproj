@@ -14,6 +14,8 @@
 		3A6901B11D88D99E0075635A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A6901AF1D88D99E0075635A /* Main.storyboard */; };
 		3A6901B31D88D99E0075635A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A6901B21D88D99E0075635A /* Assets.xcassets */; };
 		3A6901B61D88D99E0075635A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A6901B41D88D99E0075635A /* LaunchScreen.storyboard */; };
+		3A6901C01D88DDED0075635A /* ComicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6901BF1D88DDED0075635A /* ComicManager.swift */; };
+		3A6901C21D88DE000075635A /* ComicManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6901C11D88DE000075635A /* ComicManagerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		3A6901B21D88D99E0075635A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A6901B51D88D99E0075635A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A6901B71D88D99E0075635A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A6901BF1D88DDED0075635A /* ComicManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComicManager.swift; path = xkcd/Model/ComicManager.swift; sourceTree = "<group>"; };
+		3A6901C11D88DE000075635A /* ComicManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComicManagerDelegate.swift; path = xkcd/Model/ComicManagerDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,15 +63,34 @@
 			isa = PBXGroup;
 			children = (
 				3A6901A61D88D99E0075635A /* AppDelegate.swift */,
+				3A6901BE1D88D9EC0075635A /* Model */,
+				3A6901BD1D88D9AF0075635A /* View */,
+				3A6901B71D88D99E0075635A /* Info.plist */,
+			);
+			path = xkcd;
+			sourceTree = "<group>";
+		};
+		3A6901BD1D88D9AF0075635A /* View */ = {
+			isa = PBXGroup;
+			children = (
 				3A6901AB1D88D99E0075635A /* MasterViewController.swift */,
 				3A6901AD1D88D99E0075635A /* DetailViewController.swift */,
 				3A6901AF1D88D99E0075635A /* Main.storyboard */,
 				3A6901B21D88D99E0075635A /* Assets.xcassets */,
 				3A6901B41D88D99E0075635A /* LaunchScreen.storyboard */,
-				3A6901B71D88D99E0075635A /* Info.plist */,
-				3A6901A81D88D99E0075635A /* xkcd.xcdatamodeld */,
 			);
-			path = xkcd;
+			name = View;
+			sourceTree = "<group>";
+		};
+		3A6901BE1D88D9EC0075635A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3A6901A81D88D99E0075635A /* xkcd.xcdatamodeld */,
+				3A6901BF1D88DDED0075635A /* ComicManager.swift */,
+				3A6901C11D88DE000075635A /* ComicManagerDelegate.swift */,
+			);
+			name = Model;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,7 +168,9 @@
 			files = (
 				3A6901A71D88D99E0075635A /* AppDelegate.swift in Sources */,
 				3A6901AA1D88D99E0075635A /* xkcd.xcdatamodeld in Sources */,
+				3A6901C21D88DE000075635A /* ComicManagerDelegate.swift in Sources */,
 				3A6901AC1D88D99E0075635A /* MasterViewController.swift in Sources */,
+				3A6901C01D88DDED0075635A /* ComicManager.swift in Sources */,
 				3A6901AE1D88D99E0075635A /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,7 +345,8 @@
 				3A6901A91D88D99E0075635A /* xkcd.xcdatamodel */,
 			);
 			currentVersion = 3A6901A91D88D99E0075635A /* xkcd.xcdatamodel */;
-			path = xkcd.xcdatamodeld;
+			name = xkcd.xcdatamodeld;
+			path = xkcd/xkcd.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
