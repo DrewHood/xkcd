@@ -75,10 +75,12 @@ class MasterViewController: UITableViewController, ComicManagerDelegate {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let object: Comic = self.comicList![indexPath.row]
                     
-                let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-                controller.detailItem = object
-                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
-                controller.navigationItem.leftItemsSupplementBackButton = true
+                if let controller = (segue.destination as? UINavigationController)?.topViewController as? DetailViewController {
+                    self.detailViewController = controller
+                    self.detailViewController!.detailItem = object
+                    self.detailViewController!.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
+                    self.detailViewController!.navigationItem.leftItemsSupplementBackButton = true
+                }
             }
         }
     }

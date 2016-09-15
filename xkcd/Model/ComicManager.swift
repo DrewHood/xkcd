@@ -192,6 +192,8 @@ class ComicManager {
     
     // MARK: - Images
     func retrieveImage(forComic comic: Comic) {
-        
+        // Download image
+        // Save to file
+        // Write URL to Comic object
     }
 }
