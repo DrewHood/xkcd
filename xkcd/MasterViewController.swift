@@ -17,6 +17,7 @@ class MasterViewController: UITableViewController, ComicManagerDelegate {
     var comicList: [Comic]?
     
     private static let COMIC_CELL_ID = "Comic"
+    private static let DETAIL_VIEW_SEGUE_ID = "showDetail"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,17 +70,18 @@ class MasterViewController: UITableViewController, ComicManagerDelegate {
 
     // MARK: - Segues
     
-    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //        if segue.identifier == "showDetail" {
-    //            if let indexPath = self.tableView.indexPathForSelectedRow {
-    //            let object = self.fetchedResultsController.object(at: indexPath)
-    //                let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-    //                controller.detailItem = object
-    //                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
-    //                controller.navigationItem.leftItemsSupplementBackButton = true
-    //            }
-    //        }
-    //    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == MasterViewController.DETAIL_VIEW_SEGUE_ID {
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                let object: Comic = self.comicList![indexPath.row]
+                    
+                let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
+                controller.detailItem = object
+                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
+                controller.navigationItem.leftItemsSupplementBackButton = true
+            }
+        }
+    }
 
 }
 

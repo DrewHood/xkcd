@@ -10,16 +10,25 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
-    @IBOutlet weak var detailDescriptionLabel: UILabel!
-
+    @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var toolbar: UIToolbar!
+    
+    var detailItem: Comic? {
+        didSet {
+            // Update the view.
+            self.configureView()
+        }
+    }
 
     func configureView() {
         // Update the user interface for the detail item.
         if let detail = self.detailItem {
-            if let label = self.detailDescriptionLabel {
-                //label.text = detail.timestamp!.description
-            }
+            self.navigationItem.title = detail.title
         }
+    }
+    
+    private func configureWebView() {
+        
     }
 
     override func viewDidLoad() {
@@ -32,14 +41,20 @@ class DetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: - Interface Actions
 
-    var detailItem: Comic? {
-        didSet {
-            // Update the view.
-            self.configureView()
-        }
+    @IBAction func favoriteAction(sender: AnyObject) {
+        
     }
-
+    
+    @IBAction func nextAction(sender: AnyObject) {
+        
+    }
+    
+    @IBAction func previousAction(sender: AnyObject) {
+        
+    }
 
 }
 

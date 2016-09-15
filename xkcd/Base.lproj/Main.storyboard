@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -34,29 +35,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Detail view content goes here" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="0XM-y9-sOw">
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" size="system"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <webView contentMode="scaleToFill" horizontalHuggingPriority="229" verticalHuggingPriority="230" translatesAutoresizingMaskIntoConstraints="NO" id="5jl-W9-Mdb">
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R5b-Gc-fqa">
+                                <items>
+                                    <barButtonItem title="&lt;3" id="AVM-ia-mkO"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="bZ9-ti-fkY"/>
+                                    <barButtonItem title="News" id="b86-8P-Ig5"/>
+                                    <barButtonItem title="Link" id="7xk-Jd-C2j"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Gob-Cg-3hl"/>
+                                    <barButtonItem title="&lt;" id="RpG-lV-keh"/>
+                                    <barButtonItem title="&gt;" id="TEN-wo-nvx"/>
+                                </items>
+                            </toolbar>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="0XM-y9-sOw" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leading" constant="20" symbolic="YES" id="Tsc-yG-G1q"/>
-                            <constraint firstItem="0XM-y9-sOw" firstAttribute="centerY" secondItem="svH-Pt-448" secondAttribute="centerY" id="jWN-iV-94e"/>
-                            <constraint firstAttribute="trailing" secondItem="0XM-y9-sOw" secondAttribute="trailing" constant="20" symbolic="YES" id="tHV-ZD-HQj"/>
+                            <constraint firstItem="5jl-W9-Mdb" firstAttribute="centerX" secondItem="svH-Pt-448" secondAttribute="centerX" id="3Mj-dK-qnT"/>
+                            <constraint firstItem="5jl-W9-Mdb" firstAttribute="height" secondItem="svH-Pt-448" secondAttribute="height" id="3jd-kZ-cRB"/>
+                            <constraint firstItem="5jl-W9-Mdb" firstAttribute="width" secondItem="svH-Pt-448" secondAttribute="width" id="IiE-4w-FmN"/>
+                            <constraint firstItem="5jl-W9-Mdb" firstAttribute="centerY" secondItem="svH-Pt-448" secondAttribute="centerY" id="U3P-XD-A3n"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="R5b-Gc-fqa" secondAttribute="trailing" constant="-20" id="bLv-ns-TQN"/>
+                            <constraint firstItem="R5b-Gc-fqa" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" constant="-20" id="glt-De-0DZ"/>
+                            <constraint firstItem="GAO-Cl-Wes" firstAttribute="top" secondItem="R5b-Gc-fqa" secondAttribute="bottom" id="heg-w2-S3G"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
                     <connections>
-                        <outlet property="detailDescriptionLabel" destination="0XM-y9-sOw" id="deQ-Na-JPF"/>
+                        <outlet property="toolbar" destination="R5b-Gc-fqa" id="It6-Ap-Hv4"/>
+                        <outlet property="webView" destination="5jl-W9-Mdb" id="eeZ-55-kEF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="709" y="129"/>
+            <point key="canvasLocation" x="708" y="128.18590704647679"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="Nki-YV-4Qg">
