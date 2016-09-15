@@ -16,6 +16,8 @@ class ComicManager {
     // Data
     private let moc: NSManagedObjectContext
     
+    private var isUpdating: Bool = false
+    
     // Singleton
     static let sharedManager = ComicManager()
     private init() {
@@ -41,6 +43,8 @@ class ComicManager {
     
     // MARK: - Comic Retrieval
     func retrieveNewComics() {
+        if self.isUpdating { return }
+        
         // Download new comics from site. 
         
         // TODO: Build the real version. 
@@ -67,10 +71,7 @@ class ComicManager {
             }
         }
         
-        for id in 1700...1730 {
-            if let _ = self.getComic(withId: Int32(id)) {
-                continue
-            }
+        func downloadComic(withId id: Int32) {
             
             let urlStr = "https://xkcd.com/\(id)/info.0.json"
             
@@ -87,6 +88,70 @@ class ComicManager {
                 }
             }
         }
+        
+        self.isUpdating = true
+        
+        let urlStr = "https://xkcd.com/info.0.json"
+        
+        Alamofire.request(urlStr).responseJSON { response in
+            switch response.result {
+            case .success(let JSON):
+                let responseDict = JSON as! [String:AnyObject]
+                
+                // Do we need to save this one?
+                let newId: Int32 = (responseDict["num"] as! NSNumber).int32Value
+                if let _ = self.getComic(withId: Int32(newId)) {
+                    // Nothing
+                } else {
+                    saveNewComic(dictionary: responseDict)
+                }
+                
+                
+                // What is the newest comic we have?
+                let newestId = self.getLatestComicId()
+                
+                for id in 1...newestId {
+                    if id == 404 { // TODO: Provide for comic 404
+                        continue
+                    }
+                    
+                    if let _ = self.getComic(withId: Int32(id)) {
+                        // TODO: This brute force can be wayyy more efficient.
+                        continue
+                    }
+                    
+                    downloadComic(withId: Int32(id))
+                }
+                
+                break
+            case .failure(let error):
+                print("Error retrieving new comic:")
+                debugPrint(error)
+                break
+            }
+        }
+        
+        self.isUpdating = false
+        
+    }
+    
+    private func getLatestComicId() -> Int32 {
+        // What is the newest comic we have?
+        let fetchRequest: NSFetchRequest<Comic> = Comic.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "id", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        fetchRequest.fetchLimit = 1
+        
+        do {
+            let comics: [Comic] = try self.moc.fetch(fetchRequest)
+            if comics.count > 0 {
+                return comics[0].id
+            }
+        } catch {
+            print("Error with fetch!")
+        }
+        
+        return 0
     }
     
     func getComics(favorites: Bool = false) -> [Comic]? {
