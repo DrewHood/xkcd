@@ -37,8 +37,10 @@
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" minimumZoomScale="0.80000000000000004" maximumZoomScale="5" translatesAutoresizingMaskIntoConstraints="NO" id="ABy-4P-EYe">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <connections>
                                     <outlet property="delegate" destination="JEX-9P-axG" id="DCB-OG-KkM"/>
+                                    <outletCollection property="gestureRecognizers" destination="zPw-Ov-UKb" appends="YES" id="lPO-ca-lkx"/>
                                 </connections>
                             </scrollView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wuu-OZ-gQ9">
@@ -122,11 +124,67 @@
                         <outlet property="errorView" destination="Wuu-OZ-gQ9" id="vGZ-Wi-zEr"/>
                         <outlet property="scrollView" destination="ABy-4P-EYe" id="1HI-KQ-G7g"/>
                         <outlet property="toolbar" destination="R5b-Gc-fqa" id="It6-Ap-Hv4"/>
+                        <segue destination="QWm-Td-3YM" kind="popoverPresentation" identifier="COMIC_INFO_SEGUE_ID" popoverAnchorView="ABy-4P-EYe" id="Dbg-Yv-kAz">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="zPw-Ov-UKb">
+                    <connections>
+                        <action selector="showAltActionWithSender:" destination="JEX-9P-axG" id="AE8-OU-Bu7"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="708" y="128.18590704647679"/>
+        </scene>
+        <!--Comic Info View Controller-->
+        <scene sceneID="4L2-Dk-4sd">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2xK-be-O0c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="QWm-Td-3YM" customClass="ComicInfoViewController" customModule="xkcd" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Q0d-UJ-wib"/>
+                        <viewControllerLayoutGuide type="bottom" id="ngB-rF-Ijt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zjM-hW-Fsc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qSe-LQ-cTL">
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YLY-Jz-ifi">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="91" id="E00-Vg-DJT"/>
+                                    <constraint firstAttribute="height" constant="36" id="uob-GN-mAH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Dismiss"/>
+                                <connections>
+                                    <action selector="dismissActionWithSender:" destination="QWm-Td-3YM" eventType="touchUpInside" id="vkb-81-aj9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ngB-rF-Ijt" firstAttribute="top" secondItem="YLY-Jz-ifi" secondAttribute="bottom" constant="41" id="EvS-of-ym5"/>
+                            <constraint firstItem="qSe-LQ-cTL" firstAttribute="top" secondItem="Q0d-UJ-wib" secondAttribute="bottom" constant="10" id="PRV-f9-MpX"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="qSe-LQ-cTL" secondAttribute="leading" id="ba4-l5-Tx0"/>
+                            <constraint firstItem="YLY-Jz-ifi" firstAttribute="top" secondItem="qSe-LQ-cTL" secondAttribute="bottom" id="cVC-Ha-g5w"/>
+                            <constraint firstItem="YLY-Jz-ifi" firstAttribute="centerX" secondItem="zjM-hW-Fsc" secondAttribute="centerX" id="eSg-cu-bdu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qSe-LQ-cTL" secondAttribute="trailing" id="f93-Yz-Loi"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="altTextView" destination="qSe-LQ-cTL" id="zCM-MJ-cms"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="706.39999999999998" y="976.46176911544239"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="Nki-YV-4Qg">
@@ -203,6 +261,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="6S0-TO-JiA"/>
+        <segue reference="Tll-UG-LXB"/>
     </inferredMetricsTieBreakers>
 </document>

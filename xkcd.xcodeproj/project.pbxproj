@@ -20,6 +20,7 @@
 		3A6901DD1D899A8F0075635A /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3A6901CF1D899A840075635A /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3A6901EA1D899D4D0075635A /* Comic+Initialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6901E91D899D4D0075635A /* Comic+Initialization.swift */; };
 		3A6901EC1D89A12B0075635A /* Date+Initialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6901EB1D89A12B0075635A /* Date+Initialization.swift */; };
+		3ACB76C51D8DAB3C00C66316 /* ComicInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACB76C41D8DAB3C00C66316 /* ComicInfoViewController.swift */; };
 		3AF2358F1D8D6E210035AF24 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF2358E1D8D6E210035AF24 /* CacheManager.swift */; };
 		3AF235991D8D7B930035AF24 /* ComicManagerImageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF235981D8D7B930035AF24 /* ComicManagerImageDelegate.swift */; };
 /* End PBXBuildFile section */
@@ -112,6 +113,7 @@
 		3A6901C31D899A840075635A /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		3A6901E91D899D4D0075635A /* Comic+Initialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Comic+Initialization.swift"; path = "xkcd/Model/Comic+Initialization.swift"; sourceTree = "<group>"; };
 		3A6901EB1D89A12B0075635A /* Date+Initialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Date+Initialization.swift"; path = "xkcd/Model/Date+Initialization.swift"; sourceTree = "<group>"; };
+		3ACB76C41D8DAB3C00C66316 /* ComicInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicInfoViewController.swift; sourceTree = "<group>"; };
 		3AF2358E1D8D6E210035AF24 /* CacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CacheManager.swift; path = xkcd/BusinessLogic/CacheManager.swift; sourceTree = "<group>"; };
 		3AF235981D8D7B930035AF24 /* ComicManagerImageDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComicManagerImageDelegate.swift; path = xkcd/BusinessLogic/ComicManagerImageDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -162,6 +164,7 @@
 			children = (
 				3A6901AB1D88D99E0075635A /* MasterViewController.swift */,
 				3A6901AD1D88D99E0075635A /* DetailViewController.swift */,
+				3ACB76C41D8DAB3C00C66316 /* ComicInfoViewController.swift */,
 				3A6901AF1D88D99E0075635A /* Main.storyboard */,
 				3A6901B21D88D99E0075635A /* Assets.xcassets */,
 				3A6901B41D88D99E0075635A /* LaunchScreen.storyboard */,
@@ -341,6 +344,7 @@
 			files = (
 				3A6901A71D88D99E0075635A /* AppDelegate.swift in Sources */,
 				3AF2358F1D8D6E210035AF24 /* CacheManager.swift in Sources */,
+				3ACB76C51D8DAB3C00C66316 /* ComicInfoViewController.swift in Sources */,
 				3A6901AA1D88D99E0075635A /* xkcd.xcdatamodeld in Sources */,
 				3A6901C21D88DE000075635A /* ComicManagerDelegate.swift in Sources */,
 				3A6901AC1D88D99E0075635A /* MasterViewController.swift in Sources */,

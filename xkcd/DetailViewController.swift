@@ -17,9 +17,11 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, ComicManager
     @IBOutlet weak var errorView: UIView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    private static let COMIC_INFO_SEGUE_ID = "COMIC_INFO_SEGUE_ID"
+    
     // Data
     private let comicManager = ComicManager.sharedManager
-    
+
     var detailItem: Comic?
 
     func configureView() {
@@ -32,24 +34,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, ComicManager
                 self.activityIndicator.startAnimating()
             }
             
-//            self.configureWebView()
         }
     }
-    
-//    private func configureWebView() {
-//        //if let urlStr = self.detailItem?.localImageUrl {
-//           // let htmlStr = "<html><img src=\"\(urlStr)\"></html>"
-//            let url = URL(string: "https://xkcd.com/\(self.detailItem!.id)")
-//            let urlreq = URLRequest(url: url!)
-//            
-//            print("loading url \(url)")
-//            
-//            if self.webView != nil {
-//                // self.webView.loadHTMLString(htmlStr, baseURL: nil)
-//                self.webView.loadRequest(urlreq)
-//            }
-//        //}
-//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +56,14 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, ComicManager
         self.configureView()
         
         super.viewWillAppear(animated)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == DetailViewController.COMIC_INFO_SEGUE_ID {
+            if let comicInfoView = segue.destination as? ComicInfoViewController {
+                comicInfoView.comic = self.detailItem
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -95,10 +89,18 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, ComicManager
         self.configureView() // just reconfigure the view
     }
     
+    @IBAction func showAltAction(sender: UILongPressGestureRecognizer) {
+        self.performSegue(withIdentifier: DetailViewController.COMIC_INFO_SEGUE_ID, sender: sender)
+    }
+    
     // MARK: - Image Delegation
     func comicManager(manager: ComicManager, retrievedImage image: UIImage, forComic comic: Comic) {
         // Create an ImageView
         self.imageView = UIImageView(image: image)
+        
+        for subview in self.scrollView.subviews {
+            subview.removeFromSuperview()
+        }
         
         self.scrollView.addSubview(self.imageView!)
         self.scrollView.setZoomScale(1.0, animated: true)
@@ -118,7 +120,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, ComicManager
     }
     
     func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
-        
+        // Do nothing for now
     }
 
 }
