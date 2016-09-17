@@ -35,9 +35,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="229" verticalHuggingPriority="230" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5jl-W9-Mdb">
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </webView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" minimumZoomScale="0.80000000000000004" maximumZoomScale="5" translatesAutoresizingMaskIntoConstraints="NO" id="ABy-4P-EYe">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="JEX-9P-axG" id="DCB-OG-KkM"/>
+                                </connections>
+                            </scrollView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R5b-Gc-fqa">
                                 <items>
                                     <barButtonItem title="&lt;3" id="AVM-ia-mkO">
@@ -63,20 +66,20 @@
                             </toolbar>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="5jl-W9-Mdb" firstAttribute="centerX" secondItem="svH-Pt-448" secondAttribute="centerX" id="3Mj-dK-qnT"/>
-                            <constraint firstItem="5jl-W9-Mdb" firstAttribute="height" secondItem="svH-Pt-448" secondAttribute="height" id="3jd-kZ-cRB"/>
-                            <constraint firstItem="5jl-W9-Mdb" firstAttribute="width" secondItem="svH-Pt-448" secondAttribute="width" id="IiE-4w-FmN"/>
-                            <constraint firstItem="5jl-W9-Mdb" firstAttribute="centerY" secondItem="svH-Pt-448" secondAttribute="centerY" id="U3P-XD-A3n"/>
+                            <constraint firstItem="ABy-4P-EYe" firstAttribute="width" secondItem="svH-Pt-448" secondAttribute="width" id="5oJ-nQ-Lov"/>
+                            <constraint firstItem="ABy-4P-EYe" firstAttribute="centerX" secondItem="svH-Pt-448" secondAttribute="centerX" id="Ubf-5b-gPV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="R5b-Gc-fqa" secondAttribute="trailing" constant="-20" id="bLv-ns-TQN"/>
                             <constraint firstItem="R5b-Gc-fqa" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" constant="-20" id="glt-De-0DZ"/>
                             <constraint firstItem="GAO-Cl-Wes" firstAttribute="top" secondItem="R5b-Gc-fqa" secondAttribute="bottom" id="heg-w2-S3G"/>
+                            <constraint firstItem="ABy-4P-EYe" firstAttribute="height" secondItem="svH-Pt-448" secondAttribute="height" id="uOd-oc-NcB"/>
+                            <constraint firstItem="ABy-4P-EYe" firstAttribute="centerY" secondItem="svH-Pt-448" secondAttribute="centerY" id="zeo-oO-LWM"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
                     <connections>
+                        <outlet property="scrollView" destination="ABy-4P-EYe" id="1HI-KQ-G7g"/>
                         <outlet property="toolbar" destination="R5b-Gc-fqa" id="It6-Ap-Hv4"/>
-                        <outlet property="webView" destination="5jl-W9-Mdb" id="wSl-bK-emr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>

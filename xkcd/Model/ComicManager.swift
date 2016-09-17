@@ -15,6 +15,7 @@ class ComicManager {
     
     // Data
     private let moc: NSManagedObjectContext
+    private let cacheManager: CacheManager
     
     private var isUpdating: Bool = false
     
@@ -23,22 +24,29 @@ class ComicManager {
     private init() {
         let appDel = UIApplication.shared.delegate as! AppDelegate
         self.moc = appDel.persistentContainer.viewContext
+        
+        self.cacheManager = CacheManager.sharedManager
     }
     
     // MARK: - Delegation
     var delegate: ComicManagerDelegate?
+    var imageDelegate: ComicManagerImageDelegate?
     
-    func delegateAdded(comic: Comic) {
+    private func delegateAdded(comic: Comic) {
         // Inform our delegate.
         self.delegate?.comicManager(manager: self, addedComic: comic)
     }
     
-    func delegateUpdated(comic: Comic) {
+    private func delegateUpdated(comic: Comic) {
         self.delegate?.comicManager(manager: self, updatedComic: comic)
     }
     
-    func delegateRemoved(comic: Comic) {
+    private func delegateRemoved(comic: Comic) {
         self.delegate?.comicManager(manager: self, removedComic: comic)
+    }
+    
+    private func delegateImageRetrieved(image: UIImage, comic: Comic) {
+        self.imageDelegate?.comicManager(manager: self, retrievedImage: image, forComic: comic)
     }
     
     // MARK: - Comic Retrieval
@@ -195,5 +203,54 @@ class ComicManager {
         // Download image
         // Save to file
         // Write URL to Comic object
+        
+        func handleImageData(imageData: Data) {
+            // Create image from the data
+            if let image = UIImage(data: imageData) {
+            
+                // Cache the image
+                self.cacheManager.cacheImage(image: image, forComic: comic)
+                
+                // Delegate the result
+                defer {
+                    self.delegateImageRetrieved(image: image, comic: comic)
+                }
+                
+            } else {
+                print("Error downloading image!")
+            }
+        }
+        
+        // First, check to see if we have a cached version
+        if let image = self.retrieveImageFromCache(forComic: comic) {
+            
+            defer {
+                self.delegateImageRetrieved(image: image, comic: comic)
+            }
+            
+            return
+        }
+        
+        // If there's no cached copy, let's download it.
+        let imgUrl = comic.remoteImageUrl! // TODO: Handle the error here
+        let imgSafeUrl = imgUrl.replacingOccurrences(of: "http", with: "https")
+        Alamofire.request(imgSafeUrl).responseData { response in
+            switch response.result {
+                case .success(let data):
+                    handleImageData(imageData: data)
+                break
+                case .failure(let err):
+                    debugPrint(err)
+                break
+            }
+        }
+    }
+    
+    private func retrieveImageFromCache(forComic comic: Comic) -> UIImage? {
+        if let image = self.cacheManager.imageFromCache(forComic: comic) {
+            return image
+        }
+        
+        return nil
     }
 }

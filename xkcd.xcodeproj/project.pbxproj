@@ -20,6 +20,8 @@
 		3A6901DD1D899A8F0075635A /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3A6901CF1D899A840075635A /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3A6901EA1D899D4D0075635A /* Comic+Initialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6901E91D899D4D0075635A /* Comic+Initialization.swift */; };
 		3A6901EC1D89A12B0075635A /* Date+Initialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6901EB1D89A12B0075635A /* Date+Initialization.swift */; };
+		3AF2358F1D8D6E210035AF24 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF2358E1D8D6E210035AF24 /* CacheManager.swift */; };
+		3AF235991D8D7B930035AF24 /* ComicManagerImageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF235981D8D7B930035AF24 /* ComicManagerImageDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +112,8 @@
 		3A6901C31D899A840075635A /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		3A6901E91D899D4D0075635A /* Comic+Initialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Comic+Initialization.swift"; path = "xkcd/Model/Comic+Initialization.swift"; sourceTree = "<group>"; };
 		3A6901EB1D89A12B0075635A /* Date+Initialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Date+Initialization.swift"; path = "xkcd/Model/Date+Initialization.swift"; sourceTree = "<group>"; };
+		3AF2358E1D8D6E210035AF24 /* CacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CacheManager.swift; path = xkcd/BusinessLogic/CacheManager.swift; sourceTree = "<group>"; };
+		3AF235981D8D7B930035AF24 /* ComicManagerImageDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComicManagerImageDelegate.swift; path = xkcd/BusinessLogic/ComicManagerImageDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +150,7 @@
 			children = (
 				3A6901A61D88D99E0075635A /* AppDelegate.swift */,
 				3A6901BE1D88D9EC0075635A /* Model */,
+				3AF235971D8D6E2A0035AF24 /* Business Logic */,
 				3A6901BD1D88D9AF0075635A /* View */,
 				3A6901B71D88D99E0075635A /* Info.plist */,
 			);
@@ -168,8 +173,6 @@
 			isa = PBXGroup;
 			children = (
 				3A6901A81D88D99E0075635A /* xkcd.xcdatamodeld */,
-				3A6901BF1D88DDED0075635A /* ComicManager.swift */,
-				3A6901C11D88DE000075635A /* ComicManagerDelegate.swift */,
 				3A6901E91D899D4D0075635A /* Comic+Initialization.swift */,
 				3A6901EB1D89A12B0075635A /* Date+Initialization.swift */,
 			);
@@ -189,6 +192,18 @@
 				3A6901DB1D899A840075635A /* Alamofire.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		3AF235971D8D6E2A0035AF24 /* Business Logic */ = {
+			isa = PBXGroup;
+			children = (
+				3A6901BF1D88DDED0075635A /* ComicManager.swift */,
+				3A6901C11D88DE000075635A /* ComicManagerDelegate.swift */,
+				3AF235981D8D7B930035AF24 /* ComicManagerImageDelegate.swift */,
+				3AF2358E1D8D6E210035AF24 /* CacheManager.swift */,
+			);
+			name = "Business Logic";
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,11 +340,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A6901A71D88D99E0075635A /* AppDelegate.swift in Sources */,
+				3AF2358F1D8D6E210035AF24 /* CacheManager.swift in Sources */,
 				3A6901AA1D88D99E0075635A /* xkcd.xcdatamodeld in Sources */,
 				3A6901C21D88DE000075635A /* ComicManagerDelegate.swift in Sources */,
 				3A6901AC1D88D99E0075635A /* MasterViewController.swift in Sources */,
 				3A6901EA1D899D4D0075635A /* Comic+Initialization.swift in Sources */,
 				3A6901EC1D89A12B0075635A /* Date+Initialization.swift in Sources */,
+				3AF235991D8D7B930035AF24 /* ComicManagerImageDelegate.swift in Sources */,
 				3A6901C01D88DDED0075635A /* ComicManager.swift in Sources */,
 				3A6901AE1D88D99E0075635A /* DetailViewController.swift in Sources */,
 			);
