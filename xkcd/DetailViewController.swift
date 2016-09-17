@@ -74,7 +74,13 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, ComicManager
     // MARK: - Interface Actions
 
     @IBAction func favoriteAction(sender: AnyObject) {
-        
+        if let comic = self.detailItem {
+            if comic.favorite {
+                self.comicManager.unfavorite(comic: comic)
+            } else {
+                self.comicManager.favorite(comic: comic)
+            }
+        }
     }
     
     @IBAction func nextAction(sender: AnyObject) {

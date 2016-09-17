@@ -19,11 +19,25 @@ class MasterViewController: UITableViewController, ComicManagerDelegate {
     private static let COMIC_CELL_ID = "Comic"
     private static let DETAIL_VIEW_SEGUE_ID = "showDetail"
     
+    private var favorites: Bool = false {
+        didSet {
+            if favorites {
+                self.navigationItem.title = "Favorites"
+            } else {
+                self.navigationItem.title = "xkcd"
+            }
+            
+            self.retrieveComics()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "xkcd"
         self.retrieveComics()
         self.comicManager.delegate = self
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(toggleFavorites))
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -39,9 +53,13 @@ class MasterViewController: UITableViewController, ComicManagerDelegate {
         super.viewWillAppear(animated)
     }
     
+    func toggleFavorites() {
+        self.favorites = !self.favorites
+    }
+    
     // MARK: - Comic Manager
     func retrieveComics() {
-        self.comicList = self.comicManager.getComics()
+        self.comicList = self.comicManager.getComics(favorites: self.favorites)
         self.tableView.reloadData()
     }
     

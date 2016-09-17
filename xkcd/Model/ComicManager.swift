@@ -64,13 +64,7 @@ class ComicManager {
     func retrieveNewComics() {
         if self.isUpdating { return }
         
-        // Download new comics from site. 
-        
-        // TODO: Build the real version. 
-        // For now, just downnload a few comics.
-        
-        // Real algo: 
-        /* 
+        /*
             - Find latest comic
             - Retrieve comics back to the highest ID
             - Scan ID numbers for missing comics
@@ -179,6 +173,11 @@ class ComicManager {
         let sortDescriptor = NSSortDescriptor(key: "id", ascending: false)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
+        if favorites {
+            let predicate = NSPredicate(format: "favorite == 1")
+            fetchRequest.predicate = predicate
+        }
+        
         do {
             let comics: [Comic] = try self.moc.fetch(fetchRequest)
             return comics
@@ -251,7 +250,7 @@ class ComicManager {
         }
         
         // If there's no cached copy, let's download it.
-        let imgUrl = comic.remoteImageUrl! // TODO: Handle the error here
+        let imgUrl = comic.remoteImageUrl! 
         let imgSafeUrl = imgUrl.replacingOccurrences(of: "http", with: "https")
         Alamofire.request(imgSafeUrl).responseData { response in
             switch response.result {
@@ -274,5 +273,26 @@ class ComicManager {
         }
         
         return nil
+    }
+    
+    // MARK: - Comic Management
+    func favorite(comic: Comic) {
+        comic.favorite = true
+        
+        do {
+            try comic.managedObjectContext?.save()
+        } catch {
+            print("Failed to save favorite!")
+        }
+    }
+    
+    func unfavorite(comic: Comic) {
+        comic.favorite = false
+        
+        do {
+            try comic.managedObjectContext?.save()
+        } catch {
+            print("Failed to save favorite!")
+        }
     }
 }
