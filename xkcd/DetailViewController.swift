@@ -71,6 +71,14 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, ComicManager
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == DetailViewController.COMIC_INFO_SEGUE_ID {
             if let comicInfoView = segue.destination as? ComicInfoViewController {
+                if let popover = comicInfoView.popoverPresentationController {
+                    let gesture = sender as! UILongPressGestureRecognizer
+                    let origin = gesture.location(in: gesture.view)
+                    
+                    let rect = CGRect(x: origin.x, y: origin.y, width: 0.0, height: 0.0)
+                    
+                    popover.sourceRect = rect
+                }
                 comicInfoView.comic = self.detailItem
             }
         }

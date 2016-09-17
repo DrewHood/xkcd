@@ -121,7 +121,7 @@
                         <outlet property="errorView" destination="Wuu-OZ-gQ9" id="vGZ-Wi-zEr"/>
                         <outlet property="scrollView" destination="ABy-4P-EYe" id="1HI-KQ-G7g"/>
                         <outlet property="toolbar" destination="R5b-Gc-fqa" id="It6-Ap-Hv4"/>
-                        <segue destination="QWm-Td-3YM" kind="popoverPresentation" identifier="COMIC_INFO_SEGUE_ID" popoverAnchorView="ABy-4P-EYe" id="Dbg-Yv-kAz">
+                        <segue destination="QWm-Td-3YM" kind="popoverPresentation" identifier="COMIC_INFO_SEGUE_ID" popoverAnchorView="svH-Pt-448" id="Dbg-Yv-kAz">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
                     </connections>
@@ -252,7 +252,7 @@
         <scene sceneID="wwK-O0-Oge">
             <objects>
                 <navigationController id="mqX-Kp-O2C" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="BqV-iQ-zRF">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BqV-iQ-zRF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
