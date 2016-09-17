@@ -141,7 +141,6 @@
         <!--Comic Info View Controller-->
         <scene sceneID="4L2-Dk-4sd">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2xK-be-O0c" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="QWm-Td-3YM" customClass="ComicInfoViewController" customModule="xkcd" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Q0d-UJ-wib"/>
@@ -183,6 +182,7 @@
                         <outlet property="altTextView" destination="qSe-LQ-cTL" id="zCM-MJ-cms"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2xK-be-O0c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="706.39999999999998" y="976.46176911544239"/>
         </scene>
@@ -213,11 +213,11 @@
                                 <rect key="frame" x="0.0" y="86" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WCw-Qf-5nD" id="37f-cq-3Eg">
-                                    <frame key="frameInset" width="375" height="43.5"/>
+                                    <frame key="frameInset" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Arm-wq-HPj">
-                                            <frame key="frameInset" minX="15" width="345" height="43.5"/>
+                                            <frame key="frameInset" minX="15" width="345" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -237,11 +237,137 @@
                             <outlet property="delegate" destination="7bK-jq-Zjz" id="RA6-mI-bju"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Master" id="Zdf-7t-Un8"/>
+                    <navigationItem key="navigationItem" title="Master" id="Zdf-7t-Un8">
+                        <barButtonItem key="leftBarButtonItem" title="Info" id="hwm-ZA-gHZ">
+                            <connections>
+                                <segue destination="mqX-Kp-O2C" kind="popoverPresentation" popoverAnchorBarButtonItem="hwm-ZA-gHZ" id="jaW-Bd-XAC">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="709" y="-630"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="wwK-O0-Oge">
+            <objects>
+                <navigationController id="mqX-Kp-O2C" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="BqV-iQ-zRF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Okr-FO-DIV" kind="relationship" relationship="rootViewController" id="Com-RZ-WkR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZIV-SK-snW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1639" y="-1259"/>
+        </scene>
+        <!--App Info View Controller-->
+        <scene sceneID="6id-dC-3e6">
+            <objects>
+                <viewController id="Okr-FO-DIV" customClass="AppInfoViewController" customModule="xkcd" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="z0h-S0-xzP"/>
+                        <viewControllerLayoutGuide type="bottom" id="qMA-vQ-9s3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rQT-6W-uvV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xkcdBanner" translatesAutoresizingMaskIntoConstraints="NO" id="7Ld-Sh-9yX">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="83" id="H30-uC-eom"/>
+                                    <constraint firstAttribute="width" constant="185" id="fjZ-hl-8Sg"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOc-1A-cmF">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="167" id="Uh5-8o-cgK"/>
+                                </constraints>
+                                <string key="text">I'm just this guy, you know? I'm a CNU graduate with a degree in physics. Before starting xkcd, I worked on robots at NASA's Langley Research Center in Virginia. As of June 2007 I live in Massachusetts. In my spare time I climb things, open strange doors, and go to goth clubs dressed as a frat guy so I can stand around and look terribly uncomfortable. At frat parties I do the same thing, but the other way around.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Randall Munroe, creator of xkcd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hDk-T6-1po">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="d0y-fh-xlq"/>
+                                    <constraint firstAttribute="width" constant="294" id="zGA-Vy-ACY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffd-Cw-Qdq">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="1CN-Hh-UZG"/>
+                                    <constraint firstAttribute="width" constant="74" id="EKK-te-hpL"/>
+                                </constraints>
+                                <state key="normal" title="Read more"/>
+                                <connections>
+                                    <action selector="readMoreAction" destination="Okr-FO-DIV" eventType="touchUpInside" id="0t6-46-oxZ"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Drew" translatesAutoresizingMaskIntoConstraints="NO" id="bX8-QN-PsF">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="145" id="G2O-7Z-51j"/>
+                                    <constraint firstAttribute="height" constant="108" id="U5w-sz-Tsd"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Drew Hood, creator of this app" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Hg-ZZ-m49">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="7nX-vU-1ZJ"/>
+                                    <constraint firstAttribute="width" constant="286" id="HAL-eZ-hSY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Drew is this developer guy. If you have a problem with the app, just hit him up on Twitter @DrewRHood." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mme-CO-eTy">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9Hg-ZZ-m49" firstAttribute="leading" secondItem="rQT-6W-uvV" secondAttribute="leadingMargin" id="Ax6-l1-43o"/>
+                            <constraint firstItem="qMA-vQ-9s3" firstAttribute="top" secondItem="bX8-QN-PsF" secondAttribute="bottom" constant="47" id="B3u-OF-DnA"/>
+                            <constraint firstItem="WOc-1A-cmF" firstAttribute="top" secondItem="hDk-T6-1po" secondAttribute="bottom" constant="10" id="BmB-ki-VKR"/>
+                            <constraint firstItem="WOc-1A-cmF" firstAttribute="leading" secondItem="rQT-6W-uvV" secondAttribute="leadingMargin" id="DAa-FE-8cR"/>
+                            <constraint firstItem="7Ld-Sh-9yX" firstAttribute="top" secondItem="z0h-S0-xzP" secondAttribute="bottom" constant="26" id="E49-BH-g4o"/>
+                            <constraint firstItem="hDk-T6-1po" firstAttribute="top" secondItem="7Ld-Sh-9yX" secondAttribute="bottom" constant="20" id="EmP-Te-Np0"/>
+                            <constraint firstItem="mme-CO-eTy" firstAttribute="height" secondItem="bX8-QN-PsF" secondAttribute="height" id="LMq-Dl-hu8"/>
+                            <constraint firstItem="mme-CO-eTy" firstAttribute="top" secondItem="9Hg-ZZ-m49" secondAttribute="bottom" constant="20" id="MaA-kL-1dL"/>
+                            <constraint firstItem="ffd-Cw-Qdq" firstAttribute="top" secondItem="WOc-1A-cmF" secondAttribute="bottom" constant="18" id="Mrl-z2-vYP"/>
+                            <constraint firstItem="mme-CO-eTy" firstAttribute="leading" secondItem="rQT-6W-uvV" secondAttribute="leadingMargin" id="Vb6-TA-2T7"/>
+                            <constraint firstItem="hDk-T6-1po" firstAttribute="leading" secondItem="rQT-6W-uvV" secondAttribute="leadingMargin" id="WlI-I9-Cmb"/>
+                            <constraint firstItem="7Ld-Sh-9yX" firstAttribute="leading" secondItem="rQT-6W-uvV" secondAttribute="leadingMargin" id="c3D-Te-yCj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WOc-1A-cmF" secondAttribute="trailing" id="fYd-Tf-sfT"/>
+                            <constraint firstItem="bX8-QN-PsF" firstAttribute="leading" secondItem="mme-CO-eTy" secondAttribute="trailing" constant="10" id="igs-FR-Phx"/>
+                            <constraint firstItem="ffd-Cw-Qdq" firstAttribute="centerX" secondItem="rQT-6W-uvV" secondAttribute="centerX" id="l45-D0-qaw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bX8-QN-PsF" secondAttribute="trailing" id="vqK-Jq-WpS"/>
+                            <constraint firstItem="qMA-vQ-9s3" firstAttribute="top" secondItem="mme-CO-eTy" secondAttribute="bottom" constant="35" id="y2J-NM-PIz"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="kR0-Jc-qEN">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="I0z-Pp-bkf">
+                            <connections>
+                                <action selector="dismissAction" destination="Okr-FO-DIV" id="f72-gc-Rgz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y4Q-RR-PbV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2439" y="-1258"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r7l-gg-dq7">
@@ -260,7 +386,11 @@
             <point key="canvasLocation" x="-45" y="129"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Drew" width="1632" height="1224"/>
+        <image name="xkcdBanner" width="92" height="41"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Tll-UG-LXB"/>
+        <segue reference="6S0-TO-JiA"/>
     </inferredMetricsTieBreakers>
 </document>

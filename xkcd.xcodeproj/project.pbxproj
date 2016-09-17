@@ -21,6 +21,7 @@
 		3A6901EA1D899D4D0075635A /* Comic+Initialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6901E91D899D4D0075635A /* Comic+Initialization.swift */; };
 		3A6901EC1D89A12B0075635A /* Date+Initialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6901EB1D89A12B0075635A /* Date+Initialization.swift */; };
 		3ACB76C51D8DAB3C00C66316 /* ComicInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACB76C41D8DAB3C00C66316 /* ComicInfoViewController.swift */; };
+		3ACB76CB1D8DD75C00C66316 /* AppInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACB76CA1D8DD75C00C66316 /* AppInfoViewController.swift */; };
 		3AF2358F1D8D6E210035AF24 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF2358E1D8D6E210035AF24 /* CacheManager.swift */; };
 		3AF235991D8D7B930035AF24 /* ComicManagerImageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF235981D8D7B930035AF24 /* ComicManagerImageDelegate.swift */; };
 /* End PBXBuildFile section */
@@ -114,6 +115,7 @@
 		3A6901E91D899D4D0075635A /* Comic+Initialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Comic+Initialization.swift"; path = "xkcd/Model/Comic+Initialization.swift"; sourceTree = "<group>"; };
 		3A6901EB1D89A12B0075635A /* Date+Initialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Date+Initialization.swift"; path = "xkcd/Model/Date+Initialization.swift"; sourceTree = "<group>"; };
 		3ACB76C41D8DAB3C00C66316 /* ComicInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicInfoViewController.swift; sourceTree = "<group>"; };
+		3ACB76CA1D8DD75C00C66316 /* AppInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfoViewController.swift; sourceTree = "<group>"; };
 		3AF2358E1D8D6E210035AF24 /* CacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CacheManager.swift; path = xkcd/BusinessLogic/CacheManager.swift; sourceTree = "<group>"; };
 		3AF235981D8D7B930035AF24 /* ComicManagerImageDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComicManagerImageDelegate.swift; path = xkcd/BusinessLogic/ComicManagerImageDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -165,6 +167,7 @@
 				3A6901AB1D88D99E0075635A /* MasterViewController.swift */,
 				3A6901AD1D88D99E0075635A /* DetailViewController.swift */,
 				3ACB76C41D8DAB3C00C66316 /* ComicInfoViewController.swift */,
+				3ACB76CA1D8DD75C00C66316 /* AppInfoViewController.swift */,
 				3A6901AF1D88D99E0075635A /* Main.storyboard */,
 				3A6901B21D88D99E0075635A /* Assets.xcassets */,
 				3A6901B41D88D99E0075635A /* LaunchScreen.storyboard */,
@@ -352,6 +355,7 @@
 				3A6901EC1D89A12B0075635A /* Date+Initialization.swift in Sources */,
 				3AF235991D8D7B930035AF24 /* ComicManagerImageDelegate.swift in Sources */,
 				3A6901C01D88DDED0075635A /* ComicManager.swift in Sources */,
+				3ACB76CB1D8DD75C00C66316 /* AppInfoViewController.swift in Sources */,
 				3A6901AE1D88D99E0075635A /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
