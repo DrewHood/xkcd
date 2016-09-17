@@ -39,19 +39,6 @@ class MasterViewController: UITableViewController, ComicManagerDelegate {
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(toggleFavorites))
     }
-
-    override func viewWillAppear(_ animated: Bool) {
-        
-        let idiom = UIDevice.current.userInterfaceIdiom
-        switch idiom {
-        case .phone:
-            self.clearsSelectionOnViewWillAppear = true
-        default:
-            self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
-        }
-        
-        super.viewWillAppear(animated)
-    }
     
     func toggleFavorites() {
         self.favorites = !self.favorites
@@ -92,6 +79,10 @@ class MasterViewController: UITableViewController, ComicManagerDelegate {
         cell.textLabel?.text = "\(comic.id) - \(comic.title!)"
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
     // MARK: - Segues

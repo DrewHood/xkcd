@@ -22,9 +22,19 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, ComicManager
     // Data
     private let comicManager = ComicManager.sharedManager
 
-    var detailItem: Comic?
+    var detailItem: Comic? {
+        didSet {
+            self.configureView()
+        }
+    }
 
     func configureView() {
+        // TODO: This is a quick hack
+        // Test to see if nib is loaded
+        if self.activityIndicator == nil {
+            return
+        }
+        
         // Update the user interface for the detail item.
         if let detail = self.detailItem {
             self.navigationItem.title = detail.title
@@ -84,11 +94,17 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, ComicManager
     }
     
     @IBAction func nextAction(sender: AnyObject) {
+        var nextComicId = self.detailItem!.id + 1
+        if nextComicId == 404 { nextComicId = 405 }
         
+        self.detailItem = self.comicManager.getComic(withId: nextComicId)
     }
     
     @IBAction func previousAction(sender: AnyObject) {
+        var nextComicId = self.detailItem!.id - 1
+        if nextComicId == 404 { nextComicId = 403 }
         
+        self.detailItem = self.comicManager.getComic(withId: nextComicId)
     }
     
     @IBAction func retryAction(sender: AnyObject) {
