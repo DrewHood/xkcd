@@ -13,6 +13,13 @@ import CoreData
 
 class ComicManager {
     
+    // Errors
+    enum ComicManagerError: Error {
+        case imageDataMarshalling
+        case networking(underlyingError: Error)
+        case unknown
+    }
+    
     // Data
     private let moc: NSManagedObjectContext
     private let cacheManager: CacheManager
@@ -47,6 +54,10 @@ class ComicManager {
     
     private func delegateImageRetrieved(image: UIImage, comic: Comic) {
         self.imageDelegate?.comicManager(manager: self, retrievedImage: image, forComic: comic)
+    }
+    
+    private func delegateImageError(error: Error) {
+        self.imageDelegate?.comicManager(manager: self, encounteredImageRetrievalError: error)
     }
     
     // MARK: - Comic Retrieval
@@ -206,8 +217,10 @@ class ComicManager {
         
         func handleImageData(imageData: Data) {
             // Create image from the data
-            if let image = UIImage(data: imageData) {
-            
+            do {
+                
+                guard let image = UIImage(data: imageData) else { throw ComicManagerError.imageDataMarshalling }
+                
                 // Cache the image
                 self.cacheManager.cacheImage(image: image, forComic: comic)
                 
@@ -216,8 +229,14 @@ class ComicManager {
                     self.delegateImageRetrieved(image: image, comic: comic)
                 }
                 
-            } else {
-                print("Error downloading image!")
+            } catch ComicManagerError.imageDataMarshalling {
+                defer {
+                    self.delegateImageError(error: ComicManagerError.imageDataMarshalling)
+                }
+            } catch {
+                defer {
+                    self.delegateImageError(error: ComicManagerError.unknown)
+                }
             }
         }
         
@@ -240,6 +259,9 @@ class ComicManager {
                     handleImageData(imageData: data)
                 break
                 case .failure(let err):
+                    defer {
+                        self.delegateImageError(error: err)
+                    }
                     debugPrint(err)
                 break
             }

@@ -14,6 +14,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, ComicManager
     private var imageView: UIImageView?
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var toolbar: UIToolbar!
+    @IBOutlet weak var errorView: UIView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // Data
     private let comicManager = ComicManager.sharedManager
@@ -27,6 +29,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, ComicManager
             
             if self.detailItem != nil {
                 self.comicManager.retrieveImage(forComic: self.detailItem!)
+                self.activityIndicator.startAnimating()
             }
             
 //            self.configureWebView()
@@ -88,21 +91,25 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, ComicManager
         
     }
     
+    @IBAction func retryAction(sender: AnyObject) {
+        self.configureView() // just reconfigure the view
+    }
+    
     // MARK: - Image Delegation
     func comicManager(manager: ComicManager, retrievedImage image: UIImage, forComic comic: Comic) {
         // Create an ImageView
         self.imageView = UIImageView(image: image)
-//        if self.scrollView.frame.size.width > self.imageView!.frame.size.width {
-//            self.imageView!.frame.size.width = self.scrollView.frame.size.width
-//        } else if self.imageView!.frame.size.height > self.imageView!.frame.size.width {
-//            self.imageView!.frame.size.width = self.scrollView.frame.size.width
-//            self.scrollView.flashScrollIndicators()
-//        } else {
-//            self.scrollView.flashScrollIndicators()
-//        }
         
         self.scrollView.addSubview(self.imageView!)
         self.scrollView.setZoomScale(1.0, animated: true)
+        
+        self.activityIndicator.stopAnimating()
+        self.errorView.isHidden = true
+    }
+    
+    func comicManager(manager: ComicManager, encounteredImageRetrievalError error: Error) {
+        self.activityIndicator.stopAnimating()
+        self.errorView.isHidden = false
     }
     
     // MARK: - ScrollView Delegation

@@ -41,6 +41,40 @@
                                     <outlet property="delegate" destination="JEX-9P-axG" id="DCB-OG-KkM"/>
                                 </connections>
                             </scrollView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wuu-OZ-gQ9">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oops! We've had an error!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRB-cE-Wy7">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="227" id="EH4-bg-WlV"/>
+                                            <constraint firstAttribute="height" constant="21" id="s6h-xF-vRN"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QrO-vt-kvA">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="AuG-6F-Ufo"/>
+                                            <constraint firstAttribute="width" constant="108" id="WtC-cd-zch"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="Retry"/>
+                                        <connections>
+                                            <action selector="retryActionWithSender:" destination="JEX-9P-axG" eventType="touchUpInside" id="RrR-LB-aSe"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="RRB-cE-Wy7" firstAttribute="centerY" secondItem="Wuu-OZ-gQ9" secondAttribute="centerY" id="O59-n0-Spy"/>
+                                    <constraint firstItem="RRB-cE-Wy7" firstAttribute="centerX" secondItem="Wuu-OZ-gQ9" secondAttribute="centerX" id="XGV-8E-r3v"/>
+                                    <constraint firstItem="QrO-vt-kvA" firstAttribute="centerX" secondItem="Wuu-OZ-gQ9" secondAttribute="centerX" id="bja-GF-UaA"/>
+                                    <constraint firstItem="QrO-vt-kvA" firstAttribute="top" secondItem="RRB-cE-Wy7" secondAttribute="bottom" constant="35" id="kXh-W9-Ypo"/>
+                                </constraints>
+                            </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="FR2-zW-aoo">
+                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R5b-Gc-fqa">
                                 <items>
                                     <barButtonItem title="&lt;3" id="AVM-ia-mkO">
@@ -67,10 +101,16 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="ABy-4P-EYe" firstAttribute="width" secondItem="svH-Pt-448" secondAttribute="width" id="5oJ-nQ-Lov"/>
+                            <constraint firstItem="Wuu-OZ-gQ9" firstAttribute="height" secondItem="svH-Pt-448" secondAttribute="height" id="6KZ-Yd-1bR"/>
+                            <constraint firstItem="FR2-zW-aoo" firstAttribute="centerY" secondItem="svH-Pt-448" secondAttribute="centerY" constant="-40" id="N0M-g4-MEq"/>
+                            <constraint firstItem="FR2-zW-aoo" firstAttribute="centerX" secondItem="svH-Pt-448" secondAttribute="centerX" id="OBf-Iw-QdC"/>
+                            <constraint firstItem="Wuu-OZ-gQ9" firstAttribute="width" secondItem="svH-Pt-448" secondAttribute="width" id="TSX-3C-9ie"/>
                             <constraint firstItem="ABy-4P-EYe" firstAttribute="centerX" secondItem="svH-Pt-448" secondAttribute="centerX" id="Ubf-5b-gPV"/>
+                            <constraint firstItem="Wuu-OZ-gQ9" firstAttribute="centerY" secondItem="svH-Pt-448" secondAttribute="centerY" id="XwS-fj-LZa"/>
                             <constraint firstAttribute="trailingMargin" secondItem="R5b-Gc-fqa" secondAttribute="trailing" constant="-20" id="bLv-ns-TQN"/>
                             <constraint firstItem="R5b-Gc-fqa" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" constant="-20" id="glt-De-0DZ"/>
                             <constraint firstItem="GAO-Cl-Wes" firstAttribute="top" secondItem="R5b-Gc-fqa" secondAttribute="bottom" id="heg-w2-S3G"/>
+                            <constraint firstItem="Wuu-OZ-gQ9" firstAttribute="centerX" secondItem="svH-Pt-448" secondAttribute="centerX" id="nDo-XE-HiS"/>
                             <constraint firstItem="ABy-4P-EYe" firstAttribute="height" secondItem="svH-Pt-448" secondAttribute="height" id="uOd-oc-NcB"/>
                             <constraint firstItem="ABy-4P-EYe" firstAttribute="centerY" secondItem="svH-Pt-448" secondAttribute="centerY" id="zeo-oO-LWM"/>
                         </constraints>
@@ -78,6 +118,8 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="FR2-zW-aoo" id="OpC-a7-pCz"/>
+                        <outlet property="errorView" destination="Wuu-OZ-gQ9" id="vGZ-Wi-zEr"/>
                         <outlet property="scrollView" destination="ABy-4P-EYe" id="1HI-KQ-G7g"/>
                         <outlet property="toolbar" destination="R5b-Gc-fqa" id="It6-Ap-Hv4"/>
                     </connections>

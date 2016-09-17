@@ -27,7 +27,15 @@ class MasterViewController: UITableViewController, ComicManagerDelegate {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
+        
+        let idiom = UIDevice.current.userInterfaceIdiom
+        switch idiom {
+        case .phone:
+            self.clearsSelectionOnViewWillAppear = true
+        default:
+            self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
+        }
+        
         super.viewWillAppear(animated)
     }
     
