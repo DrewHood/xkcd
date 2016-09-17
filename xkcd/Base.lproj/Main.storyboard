@@ -84,16 +84,13 @@
                                             <action selector="favoriteActionWithSender:" destination="JEX-9P-axG" id="284-Xg-mQ5"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="bZ9-ti-fkY"/>
-                                    <barButtonItem title="News" id="b86-8P-Ig5"/>
-                                    <barButtonItem title="Link" id="7xk-Jd-C2j"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Gob-Cg-3hl"/>
-                                    <barButtonItem title="&lt;" id="RpG-lV-keh">
+                                    <barButtonItem title="Previous" id="RpG-lV-keh">
                                         <connections>
                                             <action selector="previousActionWithSender:" destination="JEX-9P-axG" id="b8M-L4-YT5"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="&gt;" id="TEN-wo-nvx">
+                                    <barButtonItem title="Next" id="TEN-wo-nvx">
                                         <connections>
                                             <action selector="nextActionWithSender:" destination="JEX-9P-axG" id="THx-d6-90S"/>
                                         </connections>
@@ -313,10 +310,10 @@
                                     <action selector="readMoreAction" destination="Okr-FO-DIV" eventType="touchUpInside" id="0t6-46-oxZ"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Drew" translatesAutoresizingMaskIntoConstraints="NO" id="bX8-QN-PsF">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="bX8-QN-PsF">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="145" id="G2O-7Z-51j"/>
-                                    <constraint firstAttribute="height" constant="108" id="U5w-sz-Tsd"/>
+                                    <constraint firstAttribute="width" constant="120" id="G2O-7Z-51j"/>
+                                    <constraint firstAttribute="height" constant="120" id="U5w-sz-Tsd"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Drew Hood, creator of this app" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Hg-ZZ-m49">
@@ -387,7 +384,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Drew" width="1632" height="1224"/>
+        <image name="icon" width="90" height="90"/>
         <image name="xkcdBanner" width="92" height="41"/>
     </resources>
     <inferredMetricsTieBreakers>
