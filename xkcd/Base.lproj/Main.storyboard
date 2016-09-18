@@ -148,6 +148,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qSe-LQ-cTL">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="210" id="Hqn-ez-x9x"/>
+                                </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
@@ -164,19 +167,66 @@
                                     <action selector="dismissActionWithSender:" destination="QWm-Td-3YM" eventType="touchUpInside" id="vkb-81-aj9"/>
                                 </connections>
                             </button>
+                            <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jjR-xl-ImP">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="News" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1DE-IP-c5z">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="6oV-WL-nuD"/>
+                                            <constraint firstAttribute="height" constant="21" id="V8c-rN-Hat"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Tf7-U1-XFB">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Tf7-U1-XFB" firstAttribute="top" secondItem="1DE-IP-c5z" secondAttribute="bottom" constant="6" id="6X6-iW-m6q"/>
+                                    <constraint firstAttribute="height" constant="180" id="80B-nA-Cp7"/>
+                                    <constraint firstItem="1DE-IP-c5z" firstAttribute="leading" secondItem="jjR-xl-ImP" secondAttribute="leading" constant="10" id="KfF-n6-h3l"/>
+                                    <constraint firstAttribute="bottom" secondItem="Tf7-U1-XFB" secondAttribute="bottom" constant="25" id="dSD-fB-7U5"/>
+                                    <constraint firstItem="Tf7-U1-XFB" firstAttribute="centerX" secondItem="jjR-xl-ImP" secondAttribute="centerX" id="lnI-U8-rKi"/>
+                                    <constraint firstItem="Tf7-U1-XFB" firstAttribute="width" secondItem="jjR-xl-ImP" secondAttribute="width" id="uXi-el-1EE"/>
+                                </constraints>
+                            </view>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zPB-M2-pg2">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="153" id="JGo-Xi-NfK"/>
+                                    <constraint firstAttribute="height" constant="30" id="St9-zi-R5w"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Open Link"/>
+                                <connections>
+                                    <action selector="linkActionWithSender:" destination="QWm-Td-3YM" eventType="touchUpInside" id="ihL-bl-K8e"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="jjR-xl-ImP" firstAttribute="leading" secondItem="zjM-hW-Fsc" secondAttribute="leadingMargin" id="5Rr-Ea-yl7"/>
                             <constraint firstItem="ngB-rF-Ijt" firstAttribute="top" secondItem="YLY-Jz-ifi" secondAttribute="bottom" constant="41" id="EvS-of-ym5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jjR-xl-ImP" secondAttribute="trailing" id="MBO-E7-dRN"/>
+                            <constraint firstItem="jjR-xl-ImP" firstAttribute="top" secondItem="qSe-LQ-cTL" secondAttribute="bottom" constant="20" id="Ngd-gP-dl4"/>
                             <constraint firstItem="qSe-LQ-cTL" firstAttribute="top" secondItem="Q0d-UJ-wib" secondAttribute="bottom" constant="10" id="PRV-f9-MpX"/>
+                            <constraint firstItem="YLY-Jz-ifi" firstAttribute="top" secondItem="zPB-M2-pg2" secondAttribute="bottom" constant="20" id="Zvh-ww-B5H"/>
                             <constraint firstAttribute="leadingMargin" secondItem="qSe-LQ-cTL" secondAttribute="leading" id="ba4-l5-Tx0"/>
-                            <constraint firstItem="YLY-Jz-ifi" firstAttribute="top" secondItem="qSe-LQ-cTL" secondAttribute="bottom" id="cVC-Ha-g5w"/>
                             <constraint firstItem="YLY-Jz-ifi" firstAttribute="centerX" secondItem="zjM-hW-Fsc" secondAttribute="centerX" id="eSg-cu-bdu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qSe-LQ-cTL" secondAttribute="trailing" id="f93-Yz-Loi"/>
+                            <constraint firstItem="1DE-IP-c5z" firstAttribute="top" secondItem="Q0d-UJ-wib" secondAttribute="bottom" constant="240" id="h2O-Vq-fjs"/>
+                            <constraint firstItem="zPB-M2-pg2" firstAttribute="centerX" secondItem="zjM-hW-Fsc" secondAttribute="centerX" id="qUE-zB-FBx"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="altTextView" destination="qSe-LQ-cTL" id="zCM-MJ-cms"/>
+                        <outlet property="linkButton" destination="zPB-M2-pg2" id="vtz-eJ-EA1"/>
+                        <outlet property="newsTextView" destination="Tf7-U1-XFB" id="Wo5-h2-sCL"/>
+                        <outlet property="newsView" destination="jjR-xl-ImP" id="IS7-u2-xbs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2xK-be-O0c" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -210,11 +260,11 @@
                                 <rect key="frame" x="0.0" y="86" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WCw-Qf-5nD" id="37f-cq-3Eg">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Arm-wq-HPj">
-                                            <frame key="frameInset" minX="15" width="345" height="43"/>
+                                            <frame key="frameInset" minX="15" width="345" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>

@@ -120,7 +120,45 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, ComicManager
     }
     
     @IBAction func showAltAction(sender: UILongPressGestureRecognizer) {
-        self.performSegue(withIdentifier: DetailViewController.COMIC_INFO_SEGUE_ID, sender: sender)
+//        self.performSegue(withIdentifier: DetailViewController.COMIC_INFO_SEGUE_ID, sender: sender)
+        
+        if let alt = self.detailItem?.alt {
+            
+            let news = self.detailItem?.news
+            
+            var newsAddendum = ""
+            if news != "" {
+                newsAddendum = "\n\n"+news!
+            }
+            
+            let message = alt + newsAddendum
+            
+            let alert = UIAlertController(title: self.detailItem?.title, message: message, preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: ({ _ in
+               alert.dismiss(animated: true, completion: nil)
+            })))
+            
+            if self.detailItem?.link != "" {
+                print(self.detailItem?.link)
+                let linkAction = UIAlertAction(title: "Open link...", style: .default, handler: ({ _ in
+                    UIApplication.shared.open(URL(string: (self.detailItem?.link)!)!, options: [:], completionHandler: nil)
+                    alert.dismiss(animated: true, completion: nil)
+                }))
+                alert.addAction(linkAction)
+            }
+            
+            // See if we need to provide a source rect for a popover
+            if let popoverController = alert.popoverPresentationController {
+                let touchOrigin = sender.location(in: sender.view)
+                let sourceRect = CGRect(x: touchOrigin.x, y: touchOrigin.y, width: 0.0, height: 0.0)
+                
+                popoverController.sourceRect = sourceRect
+                popoverController.sourceView = sender.view
+            }
+            
+            self.present(alert, animated: true, completion: nil)
+            
+        }
     }
     
     // MARK: - Image Delegation
