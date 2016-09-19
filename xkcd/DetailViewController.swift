@@ -159,12 +159,19 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, ComicManager
             
             if self.detailItem?.link != "" {
                 print(self.detailItem?.link)
-                let linkAction = UIAlertAction(title: "Open link...", style: .default, handler: ({ _ in
+                let linkAction = UIAlertAction(title: "Open comic link...", style: .default, handler: ({ _ in
                     UIApplication.shared.open(URL(string: (self.detailItem?.link)!)!, options: [:], completionHandler: nil)
                     alert.dismiss(animated: true, completion: nil)
                 }))
                 alert.addAction(linkAction)
             }
+            
+            // Finally add an option to view the xkcd website
+            let comicUrl = URL(string: "https://xkcd.com/\((self.detailItem?.id)!)")
+            let openComicAction = UIAlertAction(title: "Open in Safari...", style: .default, handler: ({ _ in
+                UIApplication.shared.open(comicUrl!, options: [:], completionHandler: nil)
+            }))
+            alert.addAction(openComicAction)
             
             // See if we need to provide a source rect for a popover
             if let popoverController = alert.popoverPresentationController {
