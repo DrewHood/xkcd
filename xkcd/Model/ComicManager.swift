@@ -267,7 +267,7 @@ class ComicManager {
         }
     }
     
-    private func retrieveImageFromCache(forComic comic: Comic) -> UIImage? {
+    func retrieveImageFromCache(forComic comic: Comic) -> UIImage? {
         if let image = self.cacheManager.imageFromCache(forComic: comic) {
             return image
         }

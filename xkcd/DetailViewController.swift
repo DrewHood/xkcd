@@ -119,6 +119,25 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, ComicManager
         self.configureView() // just reconfigure the view
     }
     
+    @IBAction func shareAction(sender: AnyObject) {
+        let url = URL(string: "https://xkcd.com/\((self.detailItem?.id)!)")!
+        
+        var items: [Any] = [url]
+        if let image = self.imageView?.image {
+            items.append(image)
+        }
+        
+        let activitySheet = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        
+        // See if we're a popover
+        if let popoverController = activitySheet.popoverPresentationController {
+            let button = sender as! UIBarButtonItem
+            popoverController.barButtonItem = button
+        }
+        
+        self.present(activitySheet, animated: true, completion: nil)
+    }
+    
     @IBAction func showAltAction(sender: UILongPressGestureRecognizer) {
 //        self.performSegue(withIdentifier: DetailViewController.COMIC_INFO_SEGUE_ID, sender: sender)
         
