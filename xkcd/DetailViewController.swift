@@ -16,6 +16,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, ComicManager
     @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var errorView: UIView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var nextButton: UIBarButtonItem!
+    @IBOutlet weak var previousButton: UIBarButtonItem!
     
     private static let COMIC_INFO_SEGUE_ID = "COMIC_INFO_SEGUE_ID"
     
@@ -45,6 +47,13 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, ComicManager
         if self.detailItem != nil {
             self.comicManager.retrieveImage(forComic: self.detailItem!)
             self.activityIndicator.startAnimating()
+            
+            // Setup the buttons at the bottom
+            let end = self.comicManager.getComics()?.endIndex
+            let start = self.comicManager.getComics()?.startIndex
+            let position = self.comicManager.getComics()?.index(of: self.detailItem!)
+            self.previousButton.isEnabled = position != (end! - 1)
+            self.nextButton.isEnabled = position != start
         }
     }
 

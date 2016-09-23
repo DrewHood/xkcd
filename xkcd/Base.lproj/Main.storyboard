@@ -125,6 +125,8 @@
                     <connections>
                         <outlet property="activityIndicator" destination="FR2-zW-aoo" id="OpC-a7-pCz"/>
                         <outlet property="errorView" destination="Wuu-OZ-gQ9" id="vGZ-Wi-zEr"/>
+                        <outlet property="nextButton" destination="TEN-wo-nvx" id="8pa-S9-N0S"/>
+                        <outlet property="previousButton" destination="RpG-lV-keh" id="sjq-8R-M0Q"/>
                         <outlet property="scrollView" destination="ABy-4P-EYe" id="1HI-KQ-G7g"/>
                         <outlet property="toolbar" destination="R5b-Gc-fqa" id="It6-Ap-Hv4"/>
                         <segue destination="QWm-Td-3YM" kind="popoverPresentation" identifier="COMIC_INFO_SEGUE_ID" popoverAnchorView="svH-Pt-448" id="Dbg-Yv-kAz">
