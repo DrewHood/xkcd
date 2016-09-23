@@ -5,15 +5,13 @@
         <attribute name="favorite" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="id" attributeType="Integer 32" usesScalarValueType="YES" indexed="YES" syncable="YES"/>
         <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="localImageUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="news" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="remoteImageUrl" attributeType="String" syncable="YES"/>
         <attribute name="safeTitle" attributeType="String" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
         <userInfo/>
     </entity>
-    <fetchRequest name="FavoriteComicsFetchRequest" entity="Comic" predicateString="favorite == 1"/>
     <elements>
-        <element name="Comic" positionX="261" positionY="189" width="128" height="180"/>
+        <element name="Comic" positionX="261" positionY="189" width="128" height="165"/>
     </elements>
 </model>
