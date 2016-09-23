@@ -82,22 +82,28 @@ class MasterViewController: UITableViewController, ComicManagerDelegate {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        //tableView.deselectRow(at: indexPath, animated: true)
     }
 
     // MARK: - Segues
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == MasterViewController.DETAIL_VIEW_SEGUE_ID {
+            let object: Comic?
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                let object: Comic = self.comicList![indexPath.row]
-                    
-                if let controller = (segue.destination as? UINavigationController)?.topViewController as? DetailViewController {
-                    self.detailViewController = controller
-                    self.detailViewController!.detailItem = object
-                    self.detailViewController!.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
-                    self.detailViewController!.navigationItem.leftItemsSupplementBackButton = true
-                }
+                object = self.comicList![indexPath.row]
+            } else if let tableViewCell = sender as? UITableViewCell {
+                let row = self.tableView.indexPath(for: tableViewCell)?.row
+                object = self.comicList![row!]
+            } else {
+                object = nil
+            }
+            
+            if let controller = (segue.destination as? UINavigationController)?.topViewController as? DetailViewController {
+                self.detailViewController = controller
+                self.detailViewController!.detailItem = object
+                self.detailViewController!.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
+                self.detailViewController!.navigationItem.leftItemsSupplementBackButton = true
             }
         }
     }
