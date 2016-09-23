@@ -20,7 +20,7 @@ extension Comic {
         
     }
     
-    func seed(withDictionary dict: [String:AnyObject]) -> Comic {
+    func seed(withDictionary dict: [String:Any]) -> Comic {
         let nsnum = dict["num"] as! NSNumber
         
         self.id = nsnum.int32Value
