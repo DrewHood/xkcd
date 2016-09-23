@@ -36,14 +36,15 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, ComicManager
         }
         
         // Update the user interface for the detail item.
-        if let detail = self.detailItem {
-            self.navigationItem.title = detail.title
-            
-            if self.detailItem != nil {
-                self.comicManager.retrieveImage(forComic: self.detailItem!)
-                self.activityIndicator.startAnimating()
-            }
-            
+        if self.detailItem == nil {
+            self.detailItem = self.comicManager.getComics()?[0]
+        }
+        
+        self.navigationItem.title = self.detailItem?.title
+        
+        if self.detailItem != nil {
+            self.comicManager.retrieveImage(forComic: self.detailItem!)
+            self.activityIndicator.startAnimating()
         }
     }
 
