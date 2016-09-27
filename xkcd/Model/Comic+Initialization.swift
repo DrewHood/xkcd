@@ -30,6 +30,7 @@ extension Comic {
         self.remoteImageUrl = dict["img"] as? String
         self.link = dict["link"] as? String
         self.news = dict["news"] as? String
+        self.transcript = dict["transcript"] as? String
         
         return self
     }
