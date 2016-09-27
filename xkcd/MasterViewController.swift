@@ -52,7 +52,9 @@ class MasterViewController: UITableViewController, ComicManagerDelegate {
     
     // MARK: Delegate
     func comicManager(manager: ComicManager, addedComic comic: Comic) {
-        self.retrieveComics()
+        self.comicList = self.comicManager.getComics(favorites: self.favorites)
+        let index = IndexPath(row: self.comicList!.index(of: comic)!, section: 0)
+        self.tableView.insertRows(at: [index] , with: .automatic)
     }
     
     func comicManager(manager: ComicManager, updatedComic comic: Comic) {
