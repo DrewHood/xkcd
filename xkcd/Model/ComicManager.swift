@@ -25,6 +25,10 @@ class ComicManager {
     private let moc: NSManagedObjectContext
     private let cacheManager: CacheManager
     
+    // Defaults
+    private let defaultSortDescriptor = NSSortDescriptor(key: "id", ascending: false)
+    
+    // Flags
     private var isUpdating: Bool = false
     
     // Singleton
@@ -154,8 +158,7 @@ class ComicManager {
     private func getLatestComicId() -> Int32 {
         // What is the newest comic we have?
         let fetchRequest: NSFetchRequest<Comic> = Comic.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "id", ascending: false)
-        fetchRequest.sortDescriptors = [sortDescriptor]
+        fetchRequest.sortDescriptors = [self.defaultSortDescriptor]
         fetchRequest.fetchLimit = 1
         
         do {
@@ -180,6 +183,21 @@ class ComicManager {
             let predicate = NSPredicate(format: "favorite == 1")
             fetchRequest.predicate = predicate
         }
+        
+        do {
+            let comics: [Comic] = try self.moc.fetch(fetchRequest)
+            return comics
+        } catch {
+            print("Error with fetch!")
+        }
+        
+        return nil
+    }
+    
+    func getComics(withPredicate predicate: NSPredicate) -> [Comic]? {
+        let fetchRequest: NSFetchRequest<Comic> = Comic.fetchRequest()
+        fetchRequest.sortDescriptors = [self.defaultSortDescriptor]
+        fetchRequest.predicate = predicate
         
         do {
             let comics: [Comic] = try self.moc.fetch(fetchRequest)

@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class MasterViewController: UITableViewController, ComicManagerDelegate {
+class MasterViewController: UITableViewController, ComicManagerDelegate, UISearchBarDelegate {
 
     var detailViewController: DetailViewController? = nil
     let comicManager = ComicManager.sharedManager
@@ -85,6 +85,33 @@ class MasterViewController: UITableViewController, ComicManagerDelegate {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    // MARK: - Search Bar Delegation
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText != "" {
+            var predicateString = "(title contains '\(searchText)') OR (id contains '\(searchText)')"
+            
+            if self.favorites {
+                predicateString += " AND favorite == 1"
+            }
+            
+            let predicate = NSPredicate(format: predicateString)
+            self.comicList = self.comicManager.getComics(withPredicate: predicate)
+            self.tableView.reloadData()
+        } else {
+            self.retrieveComics()
+        }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+        self.retrieveComics()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder() // just drop the keyboard
     }
 
     // MARK: - Segues
