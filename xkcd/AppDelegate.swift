@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate, FileManagerDelegate {
 
     var window: UIWindow?
 
@@ -65,13 +65,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {
+        
+//        var fm = FileManager()
+//        fm.delegate = self
+        
+        //let persistentStoreUrl = fm.urls(for: .applicationSupportDirectory, in: .userDomainMask).last?.appendingPathComponent("xkcd.sqlite").absoluteString
+        let seedPath = Bundle.main.url(forResource: "xkcdSeed", withExtension: "sqlite")
+        
+        let momUrl = Bundle.main.url(forResource: "xkcd", withExtension: "momd")
+        let mom = NSManagedObjectModel(contentsOf: momUrl!)
+        
+        let coordinator = NSPersistentStoreCoordinator(managedObjectModel: mom!)
+        try! coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: seedPath!, options: nil)
+        
+        //try! fm.copyItem(atPath: seedPath!, toPath: persistentStoreUrl!)
+        
+        
         /*
          The persistent container for the application. This implementation
          creates and returns a container, having loaded the store for the
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
         */
-        let container = NSPersistentContainer(name: "xkcd")
+        let container = NSPersistentContainer(name: "xkcdSeed")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
@@ -105,6 +121,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
+    
+    func fileManager(_ fileManager: FileManager, shouldCopyItemAt srcURL: URL, to dstURL: URL) -> Bool {
+        return true
+    }
+    func fileManager(_ fileManager: FileManager, shouldProceedAfterError error: Error, copyingItemAt srcURL: URL, to dstURL: URL) -> Bool {
+        print("Error was: \(error.localizedDescription)")
+        return false
     }
 
 }

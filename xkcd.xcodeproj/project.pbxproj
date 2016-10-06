@@ -28,6 +28,7 @@
 		3ACB76CB1D8DD75C00C66316 /* AppInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACB76CA1D8DD75C00C66316 /* AppInfoViewController.swift */; };
 		3AF2358F1D8D6E210035AF24 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF2358E1D8D6E210035AF24 /* CacheManager.swift */; };
 		3AF235991D8D7B930035AF24 /* ComicManagerImageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF235981D8D7B930035AF24 /* ComicManagerImageDelegate.swift */; };
+		3AFA6AD71D9DB4B9007F4472 /* xkcdSeed.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 3AFA6AD61D9DB423007F4472 /* xkcdSeed.sqlite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -175,6 +176,7 @@
 		3A6901C31D899A840075635A /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		3A6901E91D899D4D0075635A /* Comic+Initialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Comic+Initialization.swift"; path = "xkcd/Model/Comic+Initialization.swift"; sourceTree = "<group>"; };
 		3A6901EB1D89A12B0075635A /* Date+Initialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Date+Initialization.swift"; path = "xkcd/Model/Date+Initialization.swift"; sourceTree = "<group>"; };
+		3A7270EE1DA62A2800E44315 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataManager.swift; path = xkcd/Model/DataManager.swift; sourceTree = "<group>"; };
 		3ABE0AEE1D94741000D21805 /* String+Unicode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Unicode.swift"; path = "Extensions/String+Unicode.swift"; sourceTree = "<group>"; };
 		3ABE0AF01D9474F900D21805 /* UInt+HexConversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UInt+HexConversion.swift"; path = "Extensions/UInt+HexConversion.swift"; sourceTree = "<group>"; };
 		3ABE0B471D94AC3600D21805 /* SwiftyJSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyJSON.xcodeproj; path = SwiftyJSON/SwiftyJSON.xcodeproj; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 		3ACB76CA1D8DD75C00C66316 /* AppInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfoViewController.swift; sourceTree = "<group>"; };
 		3AF2358E1D8D6E210035AF24 /* CacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CacheManager.swift; path = xkcd/BusinessLogic/CacheManager.swift; sourceTree = "<group>"; };
 		3AF235981D8D7B930035AF24 /* ComicManagerImageDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComicManagerImageDelegate.swift; path = xkcd/BusinessLogic/ComicManagerImageDelegate.swift; sourceTree = "<group>"; };
+		3AFA6AD61D9DB423007F4472 /* xkcdSeed.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = xkcdSeed.sqlite; path = xkcd/xkcdSeed.sqlite; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,9 +248,11 @@
 		3A6901BE1D88D9EC0075635A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3AFA6AD61D9DB423007F4472 /* xkcdSeed.sqlite */,
 				3A6901A81D88D99E0075635A /* xkcd.xcdatamodeld */,
 				3A6901E91D899D4D0075635A /* Comic+Initialization.swift */,
 				3A6901EB1D89A12B0075635A /* Date+Initialization.swift */,
+				3A7270EE1DA62A2800E44315 /* DataManager.swift */,
 			);
 			name = Model;
 			path = ..;
@@ -339,6 +344,14 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = YMY896GMG4;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.DataProtection = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -477,6 +490,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A6901B61D88D99E0075635A /* LaunchScreen.storyboard in Resources */,
+				3AFA6AD71D9DB4B9007F4472 /* xkcdSeed.sqlite in Resources */,
 				3A6901B31D88D99E0075635A /* Assets.xcassets in Resources */,
 				3A6901B11D88D99E0075635A /* Main.storyboard in Resources */,
 			);
