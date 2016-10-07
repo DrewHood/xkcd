@@ -18,8 +18,8 @@ class MasterViewController: UITableViewController, ComicManagerDelegate, UISearc
     
     private static let COMIC_CELL_ID = "Comic"
     private static let DETAIL_VIEW_SEGUE_ID = "showDetail"
-    private let FAVORITE_STAR_IMAGE_NAME = "FavoriteStar"
-    private let FAVORITE_STAR_SELECTED_IMAGE_NAME = "FavoriteStarSelected"
+    private let FAVORITE_STAR_IMAGE_NAME = "FavoriteHeart"
+    private let FAVORITE_STAR_SELECTED_IMAGE_NAME = "FavoriteHeartClosed"
     
     private var favorites: Bool = false {
         didSet {

@@ -60,7 +60,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, ComicManager
             self.previousButton.isEnabled = position != (end! - 1)
             self.nextButton.isEnabled = position != start
             
-            let imageName = self.detailItem!.favorite ? "FavoriteStarSelected" : "FavoriteStar"
+            let imageName = self.detailItem!.favorite ? "FavoriteHeartClosed" : "FavoriteHeart"
             
             self.favoriteButton.image = UIImage(named: imageName)
         }

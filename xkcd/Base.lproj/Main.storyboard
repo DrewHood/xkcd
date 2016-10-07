@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A319" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="H1p-Uh-vWS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11535.1" systemVersion="16A319" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="H1p-Uh-vWS">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11523"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -37,6 +40,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" minimumZoomScale="0.80000000000000004" maximumZoomScale="5" translatesAutoresizingMaskIntoConstraints="NO" id="ABy-4P-EYe">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -45,8 +49,10 @@
                                 </connections>
                             </scrollView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wuu-OZ-gQ9">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oops! We've had an error!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRB-cE-Wy7">
+                                        <rect key="frame" x="74" y="323" width="227" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="227" id="EH4-bg-WlV"/>
                                             <constraint firstAttribute="height" constant="21" id="s6h-xF-vRN"/>
@@ -56,6 +62,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QrO-vt-kvA">
+                                        <rect key="frame" x="133.5" y="379" width="108" height="55"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="55" id="AuG-6F-Ufo"/>
                                             <constraint firstAttribute="width" constant="108" id="WtC-cd-zch"/>
@@ -76,16 +83,18 @@
                                 </constraints>
                             </view>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="FR2-zW-aoo">
+                                <rect key="frame" x="169" y="275" width="37" height="37"/>
                                 <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R5b-Gc-fqa">
+                                <rect key="frame" x="-4" y="623" width="383" height="44"/>
                                 <items>
                                     <barButtonItem systemItem="action" id="Nop-n3-GCj">
                                         <connections>
                                             <action selector="shareActionWithSender:" destination="JEX-9P-axG" id="4e5-Bs-C3Q"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem image="FavoriteStar" id="AVM-ia-mkO">
+                                    <barButtonItem image="FavoriteHeart" id="AVM-ia-mkO">
                                         <connections>
                                             <action selector="favoriteActionWithSender:" destination="JEX-9P-axG" id="284-Xg-mQ5"/>
                                         </connections>
@@ -157,6 +166,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qSe-LQ-cTL">
+                                <rect key="frame" x="16" y="30" width="343" height="210"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="210" id="Hqn-ez-x9x"/>
                                 </constraints>
@@ -166,6 +176,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YLY-Jz-ifi">
+                                <rect key="frame" x="142" y="590" width="91" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="91" id="E00-Vg-DJT"/>
                                     <constraint firstAttribute="height" constant="36" id="uob-GN-mAH"/>
@@ -177,8 +188,10 @@
                                 </connections>
                             </button>
                             <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jjR-xl-ImP">
+                                <rect key="frame" x="16" y="260" width="343" height="180"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="News" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1DE-IP-c5z">
+                                        <rect key="frame" x="10" y="0.0" width="50" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="6oV-WL-nuD"/>
                                             <constraint firstAttribute="height" constant="21" id="V8c-rN-Hat"/>
@@ -188,6 +201,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Tf7-U1-XFB">
+                                        <rect key="frame" x="0.0" y="27" width="343" height="128"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -205,6 +219,7 @@
                                 </constraints>
                             </view>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zPB-M2-pg2">
+                                <rect key="frame" x="111" y="540" width="153" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="153" id="JGo-Xi-NfK"/>
                                     <constraint firstAttribute="height" constant="30" id="St9-zi-R5w"/>
@@ -278,14 +293,14 @@
                         </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Comic" textLabel="Arm-wq-HPj" style="IBUITableViewCellStyleDefault" id="WCw-Qf-5nD">
-                                <rect key="frame" x="0.0" y="130" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="66" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WCw-Qf-5nD" id="37f-cq-3Eg">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Arm-wq-HPj">
-                                            <frame key="frameInset" minX="15" width="345" height="43"/>
+                                            <rect key="frame" x="15" y="0.0" width="345" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -309,7 +324,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Master" id="Zdf-7t-Un8">
-                        <barButtonItem key="leftBarButtonItem" title="Info" id="hwm-ZA-gHZ">
+                        <barButtonItem key="leftBarButtonItem" image="Info" id="hwm-ZA-gHZ">
                             <connections>
                                 <segue destination="mqX-Kp-O2C" kind="popoverPresentation" popoverAnchorBarButtonItem="hwm-ZA-gHZ" id="jaW-Bd-XAC">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
@@ -351,12 +366,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xkcdBanner" translatesAutoresizingMaskIntoConstraints="NO" id="7Ld-Sh-9yX">
+                                <rect key="frame" x="16" y="90" width="185" height="83"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="83" id="H30-uC-eom"/>
                                     <constraint firstAttribute="width" constant="185" id="fjZ-hl-8Sg"/>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOc-1A-cmF">
+                                <rect key="frame" x="16" y="224" width="343" height="167"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="167" id="Uh5-8o-cgK"/>
@@ -366,6 +383,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Randall Munroe, creator of xkcd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hDk-T6-1po">
+                                <rect key="frame" x="16" y="193" width="294" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="d0y-fh-xlq"/>
                                     <constraint firstAttribute="width" constant="294" id="zGA-Vy-ACY"/>
@@ -375,6 +393,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffd-Cw-Qdq">
+                                <rect key="frame" x="150.5" y="409" width="74" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="1CN-Hh-UZG"/>
                                     <constraint firstAttribute="width" constant="74" id="EKK-te-hpL"/>
@@ -385,12 +404,14 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="bX8-QN-PsF">
+                                <rect key="frame" x="239" y="456" width="120" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="G2O-7Z-51j"/>
                                     <constraint firstAttribute="height" constant="120" id="U5w-sz-Tsd"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Drew Hood, creator of this app" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Hg-ZZ-m49">
+                                <rect key="frame" x="16" y="427" width="286" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="7nX-vU-1ZJ"/>
                                     <constraint firstAttribute="width" constant="286" id="HAL-eZ-hSY"/>
@@ -400,6 +421,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Drew is this developer guy. If you have a problem with the app, just hit him up on Twitter @DrewRHood." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mme-CO-eTy">
+                                <rect key="frame" x="16" y="468" width="213" height="120"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -458,7 +480,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="FavoriteStar" width="44" height="44"/>
+        <image name="FavoriteHeart" width="44" height="44"/>
+        <image name="Info" width="44" height="44"/>
         <image name="icon" width="90" height="90"/>
         <image name="xkcdBanner" width="92" height="41"/>
     </resources>
