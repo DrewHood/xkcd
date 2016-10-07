@@ -85,7 +85,7 @@
                                             <action selector="shareActionWithSender:" destination="JEX-9P-axG" id="4e5-Bs-C3Q"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="&lt;3" id="AVM-ia-mkO">
+                                    <barButtonItem image="FavoriteStar" id="AVM-ia-mkO">
                                         <connections>
                                             <action selector="favoriteActionWithSender:" destination="JEX-9P-axG" id="284-Xg-mQ5"/>
                                         </connections>
@@ -125,6 +125,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="FR2-zW-aoo" id="OpC-a7-pCz"/>
                         <outlet property="errorView" destination="Wuu-OZ-gQ9" id="vGZ-Wi-zEr"/>
+                        <outlet property="favoriteButton" destination="AVM-ia-mkO" id="Ej4-BA-8VP"/>
                         <outlet property="nextButton" destination="TEN-wo-nvx" id="8pa-S9-N0S"/>
                         <outlet property="previousButton" destination="RpG-lV-keh" id="sjq-8R-M0Q"/>
                         <outlet property="scrollView" destination="ABy-4P-EYe" id="1HI-KQ-G7g"/>
@@ -280,11 +281,11 @@
                                 <rect key="frame" x="0.0" y="130" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WCw-Qf-5nD" id="37f-cq-3Eg">
-                                    <frame key="frameInset" width="375" height="43.5"/>
+                                    <frame key="frameInset" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Arm-wq-HPj">
-                                            <frame key="frameInset" minX="15" width="345" height="43.5"/>
+                                            <frame key="frameInset" minX="15" width="345" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -457,6 +458,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="FavoriteStar" width="44" height="44"/>
         <image name="icon" width="90" height="90"/>
         <image name="xkcdBanner" width="92" height="41"/>
     </resources>

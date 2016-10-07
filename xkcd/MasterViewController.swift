@@ -18,6 +18,8 @@ class MasterViewController: UITableViewController, ComicManagerDelegate, UISearc
     
     private static let COMIC_CELL_ID = "Comic"
     private static let DETAIL_VIEW_SEGUE_ID = "showDetail"
+    private let FAVORITE_STAR_IMAGE_NAME = "FavoriteStar"
+    private let FAVORITE_STAR_SELECTED_IMAGE_NAME = "FavoriteStarSelected"
     
     private var favorites: Bool = false {
         didSet {
@@ -37,11 +39,15 @@ class MasterViewController: UITableViewController, ComicManagerDelegate, UISearc
         self.retrieveComics()
         self.comicManager.delegate = self
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(toggleFavorites))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: FAVORITE_STAR_IMAGE_NAME), style: .plain, target: self, action: #selector(toggleFavorites))
     }
     
     func toggleFavorites() {
         self.favorites = !self.favorites
+        
+        // Set the image
+        let imageName = self.favorites ? FAVORITE_STAR_SELECTED_IMAGE_NAME : FAVORITE_STAR_IMAGE_NAME
+        self.navigationItem.rightBarButtonItem?.image = UIImage(named: imageName)
     }
     
     // MARK: - Comic Manager
@@ -53,8 +59,13 @@ class MasterViewController: UITableViewController, ComicManagerDelegate, UISearc
     // MARK: Delegate
     func comicManager(manager: ComicManager, addedComic comic: Comic) {
         self.comicList = self.comicManager.getComics(favorites: self.favorites)
-        let index = IndexPath(row: self.comicList!.index(of: comic)!, section: 0)
-        self.tableView.insertRows(at: [index] , with: .automatic)
+        
+        if let comics = self.comicList {
+            if comics.count > 0 {
+                let index = IndexPath(row: comics.index(of: comic)!, section: 0)
+                self.tableView.insertRows(at: [index] , with: .automatic)
+            }
+        }
     }
     
     func comicManager(manager: ComicManager, updatedComic comic: Comic) {

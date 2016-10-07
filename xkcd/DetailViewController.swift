@@ -18,6 +18,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, ComicManager
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var nextButton: UIBarButtonItem!
     @IBOutlet weak var previousButton: UIBarButtonItem!
+    @IBOutlet weak var favoriteButton: UIBarButtonItem!
     
     private static let COMIC_INFO_SEGUE_ID = "COMIC_INFO_SEGUE_ID"
     
@@ -58,6 +59,10 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, ComicManager
             let position = self.comicManager.getComics()?.index(of: self.detailItem!)
             self.previousButton.isEnabled = position != (end! - 1)
             self.nextButton.isEnabled = position != start
+            
+            let imageName = self.detailItem!.favorite ? "FavoriteStarSelected" : "FavoriteStar"
+            
+            self.favoriteButton.image = UIImage(named: imageName)
         }
     }
 
@@ -112,6 +117,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, ComicManager
             } else {
                 self.comicManager.favorite(comic: comic)
             }
+            
+            self.configureView()
         }
     }
     
